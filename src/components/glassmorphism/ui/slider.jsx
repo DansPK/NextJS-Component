@@ -1,0 +1,19 @@
+"use client";
+import * as React from "react";
+import * as SliderPrimitive from "@radix-ui/react-slider";
+import { cn } from "@/lib/utils";
+
+const GlassSlider = React.forwardRef(({ className, ...props }, ref) => (
+  <SliderPrimitive.Root
+    ref={ref}
+    className={cn("relative flex w-full touch-none select-none items-center", className)}
+    {...props}
+  >
+    <SliderPrimitive.Track className="relative h-2 w-full grow overflow-hidden rounded-full bg-white/10 border border-white/10 backdrop-blur-sm">
+      <SliderPrimitive.Range className="absolute h-full bg-white/60 shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+    </SliderPrimitive.Track>
+    <SliderPrimitive.Thumb className="block h-5 w-5 rounded-full border border-white/50 bg-white/20 backdrop-blur-xl shadow-[0_2px_10px_rgba(0,0,0,0.2)] transition-transform focus:outline-none focus:scale-110 hover:bg-white/40 disabled:pointer-events-none disabled:opacity-50" />
+  </SliderPrimitive.Root>
+));
+GlassSlider.displayName = SliderPrimitive.Root.displayName;
+export { GlassSlider };
